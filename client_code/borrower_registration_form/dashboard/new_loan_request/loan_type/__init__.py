@@ -25,6 +25,7 @@ class loan_type(loan_typeTemplate):
         self.entered_loan_amount = None
         self.entered_tenure = None
         self.entered_payment_type = None
+        self.emi = None
 
         # Load previously entered values when the form is initialized
         self.load_entered_values(entered_values)
@@ -103,7 +104,8 @@ class loan_type(loan_typeTemplate):
                           'tenure': self.entered_tenure,
                           'payment_type': self.entered_payment_type
                       },
-                      product_description=self.product_description)  # Pass product_description here
+                      product_description=self.product_description,  # Pass product_description here
+                      emi=self.emi)  # Pass monthly EMI here
 
     def fetch_product_data(self):
         return app_tables.fin_product_details.search(
@@ -224,6 +226,9 @@ class loan_type(loan_typeTemplate):
                 self.label_32.text = f"₹ {processing_fee_amount:.2f}"
                 self.Total_Repayment_Amount = Monthly_EMI * t + interest_amount + processing_fee_amount
                 self.label_34.text = f"₹ {self.Total_Repayment_Amount:.2f}"
+
+                # Pass monthly EMI value as well
+                self.emi = Monthly_EMI
 
                 self.loan_amount_tb.enabled = False
                 self.text_box_1.enabled = False

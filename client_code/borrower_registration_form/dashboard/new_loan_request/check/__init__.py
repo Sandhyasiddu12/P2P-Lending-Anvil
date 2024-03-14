@@ -9,7 +9,7 @@ from .. import main_form_module as main_form_module
 class check(checkTemplate):
     def __init__(self, product_group, product_cat, product_name, loan_amount, tenure_months, user_id, interest_rate, processing_fee,
                  membership_type, product_id, product_desc, total_repayment_amount, credit_limt, emi_payment_type, total_interest=None, processing_fee_amount=None, entered_values=None,
-                 **properties):
+                 emi=None, **properties):
         # Initialize properties and data bindings
         self.product_group = product_group
         self.product_cat = product_cat
@@ -22,13 +22,17 @@ class check(checkTemplate):
         self.processing_fee = float(processing_fee)
         self.membership_type = membership_type
         self.product_id = product_id
+        self.emi = round(emi, 2) if emi is not None else None  # Format emi to two decimal places
+        
         
         self.total_interest = float(str(total_interest).replace('₹ ', '')) if total_interest is not None else 0
         self.processing_fee_amount = float(str(processing_fee_amount).replace('₹ ', '')) if processing_fee_amount is not None else 0
         self.total_repayment_amount = float(str(total_repayment_amount).replace('₹ ', '')) if total_repayment_amount is not None else 0
+        self.total_repayment_amount = round(total_repayment_amount, 2)
         self.credit_limt = credit_limt
         self.entered_payment_type = emi_payment_type
         self.product_description = product_desc
+        
 
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
@@ -61,7 +65,8 @@ class check(checkTemplate):
                                    self.entered_payment_type,
                                    self.processing_fee_amount,
                                    self.total_interest,
-                                   self.product_description)  # Pass product description here
+                                   self.product_description,
+                                   self.emi)  # Pass product description here
 
         # Log the result for debugging
         print(result)
@@ -167,8 +172,6 @@ class check(checkTemplate):
 
         return payment_schedule
 
-
-    
     def display_three_month_payment_details(self, total_interest_amount):
         # Display payment details for three-month payment
         annual_interest_rate = float(self.interest_rate)
@@ -215,26 +218,19 @@ class check(checkTemplate):
                 elif month % 1 == 0:
                     scheduled_payment = emi * 1
     
-                # Calculate interest for the next three months
-                # total_interest = self.calculate_interest_for_months(
-                #     emi, loan_amount_beginning_balance, monthly_interest_rate, month - 2, month)
                 if month % 3 == 0:
-                  total_interest = self.calculate_interest_for_months(
-                      emi, loan_amount_beginning_balance, monthly_interest_rate, month - 2, month)
+                    total_interest = self.calculate_interest_for_months(
+                        emi, loan_amount_beginning_balance, monthly_interest_rate, month - 2, month)
                 else:
-                  total_interest = self.calculate_interest_for_months(
-                      emi, loan_amount_beginning_balance, monthly_interest_rate, month - remaining_months, month)
-
-                # Calculate principal for this row
+                    total_interest = self.calculate_interest_for_months(
+                        emi, loan_amount_beginning_balance, monthly_interest_rate, month - remaining_months, month)
+    
                 principal = scheduled_payment - total_interest
-                # Calculate total payment for this row
                 total_payment = scheduled_payment + total_processing_fee + total_interest
     
-                # Calculate ending balance and loan amount ending balance
                 ending_balance = beginning_balance - total_payment
                 loan_amount_ending_balance = loan_amount_beginning_balance - principal
     
-                # Append payment details to the schedule
                 payment_schedule.append({
                     'PaymentNumber': len(payment_schedule) + 1,
                     'PaymentDate': "Awaiting update",
@@ -250,15 +246,11 @@ class check(checkTemplate):
                     'LoanAmountEndingBalance': f"₹ {loan_amount_ending_balance:.2f}"
                 })
     
-                # Reset processing fee for the next 3-month period
                 total_processing_fee = 0
-    
-                # Update variables for the next iteration
                 beginning_balance = ending_balance
                 loan_amount_beginning_balance = loan_amount_ending_balance
     
         return payment_schedule
-
 
     def display_six_month_payment_details(self, total_interest_amount):
         # Display payment details for six-month payment
@@ -302,25 +294,19 @@ class check(checkTemplate):
                 elif month % 1 == 0:
                     scheduled_payment = emi * 1
     
-                # Calculate interest for the next six months
                 if month % 6 == 0:
-                  total_interest = self.calculate_interest_for_months(
-                      emi, loan_amount_beginning_balance, monthly_interest_rate, month - 5, month)
+                    total_interest = self.calculate_interest_for_months(
+                        emi, loan_amount_beginning_balance, monthly_interest_rate, month - 5, month)
                 else:
-                  total_interest = self.calculate_interest_for_months(
-                      emi, loan_amount_beginning_balance, monthly_interest_rate, month - remaining_months, month)
-                print(f"Row {len(payment_schedule) + 1} - Scheduled Payment: {scheduled_payment}, Total Interest: {total_interest}")
-
-                # Calculate principal for this row
+                    total_interest = self.calculate_interest_for_months(
+                        emi, loan_amount_beginning_balance, monthly_interest_rate, month - remaining_months, month)
+    
                 principal = scheduled_payment - total_interest
-                # Calculate total payment for this row
                 total_payment = scheduled_payment + total_processing_fee + total_interest
     
-                # Calculate ending balance and loan amount ending balance
                 ending_balance = beginning_balance - total_payment
                 loan_amount_ending_balance = loan_amount_beginning_balance - principal
     
-                # Append payment details to the schedule
                 payment_schedule.append({
                     'PaymentNumber': len(payment_schedule) + 1,
                     'PaymentDate': "Awaiting update",
@@ -336,10 +322,7 @@ class check(checkTemplate):
                     'LoanAmountEndingBalance': f"₹ {loan_amount_ending_balance:.2f}"
                 })
     
-                # Reset processing fee for the next 6-month period
                 total_processing_fee = 0
-    
-                # Update variables for the next iteration
                 beginning_balance = ending_balance
                 loan_amount_beginning_balance = loan_amount_ending_balance
     

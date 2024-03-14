@@ -1130,10 +1130,10 @@ db_schema:
     server: full
     columns:
     - name: borrower_email_id
-      admin_ui: {order: 2.5, width: 200}
+      admin_ui: {order: 0.125, width: 200}
       type: string
     - name: borrower_full_name
-      admin_ui: {order: 2, width: 155}
+      admin_ui: {order: 0.25, width: 155}
       type: string
     - name: interest_rate
       admin_ui: {order: 8.75, width: 124}
@@ -1145,7 +1145,7 @@ db_schema:
       admin_ui: {order: 16, width: 158}
       type: bool
     - name: total_repayment_amount
-      admin_ui: {order: 0.5, width: 200}
+      admin_ui: {order: 1.5, width: 200}
       type: number
     - name: borrower_customer_id
       admin_ui: {order: -1, width: 200}
@@ -1163,7 +1163,7 @@ db_schema:
       admin_ui: {order: 15.49609375, width: 135}
       type: date
     - name: loan_id
-      admin_ui: {order: 7, width: 108}
+      admin_ui: {order: 0.4375, width: 108}
       type: string
     - name: borrower_compLeted_monthly_emi
       admin_ui: {order: 27, width: 259}
@@ -1211,13 +1211,13 @@ db_schema:
       admin_ui: {order: 8.875, width: 117}
       type: number
     - name: loan_amount
-      admin_ui: {order: 8.9375, width: 118}
+      admin_ui: {order: 0.46875, width: 118}
       type: number
     - name: lender_accepted_timestamp
       admin_ui: {order: 15.25, width: 241}
       type: datetime
     - name: credit_limit
-      admin_ui: {order: 15.484375, width: 122}
+      admin_ui: {order: 20.75, width: 122}
       type: number
     - name: loan_disbursed_timestamp
       admin_ui: {order: 15.4375, width: 228}
@@ -1235,14 +1235,17 @@ db_schema:
       admin_ui: {order: 15.4453125, width: 120}
       type: string
     - name: total_interest_amount
-      admin_ui: {width: 200}
+      admin_ui: {order: 0.75, width: 200}
       type: number
     - name: total_processing_fee_amount
       admin_ui: {width: 200}
       type: number
     - name: product_description
-      admin_ui: {width: 200, order: 37}
+      admin_ui: {order: 20.5, width: 200}
       type: string
+    - name: monthly_emi
+      admin_ui: {width: 200, order: 0.5}
+      type: number
     title: fin_loan_details
   fin_beseem_score_users:
     client: full
