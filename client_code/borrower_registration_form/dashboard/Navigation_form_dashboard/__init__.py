@@ -32,3 +32,6 @@ class Navigation_form_dashboard(Navigation_form_dashboardTemplate):
 
   def About_Us_click(self, **event_args):
     open_form("borrower_registration_form.dashboard.dashboard_about")
+
+  def Report_A_Problem_click(self, **event_args):
+    open_form('borrower_registration_form.dashboard.dashboard_report_a_problem')

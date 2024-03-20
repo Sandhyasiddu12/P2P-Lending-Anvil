@@ -11,7 +11,7 @@ components:
   - type: form:lendor_registration_form.Navigation_bar_lender_dashbord
     properties: {}
     name: navigation_bar_lender_dashbord_1
-    layout_properties: {grid_position: 'XLNYFS,AFEVOI'}
+    layout_properties: {grid_position: 'VHTEXR,LDHUCH'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

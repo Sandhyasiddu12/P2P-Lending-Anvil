@@ -34,3 +34,6 @@ class Navigation_bar_lender_dashbord(Navigation_bar_lender_dashbordTemplate):
 
   def About_Us_click(self, **event_args):
     open_form('lendor_registration_form.dashboard.dasboard_about')
+
+  def Report_A_Problem_click(self, **event_args):
+    open_form('lendor_registration_form.dashboard.dashboard_report_a_problem')

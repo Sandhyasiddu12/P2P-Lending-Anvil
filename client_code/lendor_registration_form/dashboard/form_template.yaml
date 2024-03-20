@@ -20,49 +20,10 @@ components:
   type: Button
   layout_properties: {grid_position: 'PKNEVQ,KRWNSR'}
   event_bindings: {click: login_signup_button_click}
-- name: navbar_links_copy_1
-  properties: {role: null, vertical_align: middle, spacing: huge, align: center, tooltip: '',
-    border: '', foreground: '', visible: true, spacing_above: none, spacing_below: none,
-    background: '#05264d'}
-  type: FlowPanel
-  layout_properties: {grid_position: 'SNEWND,QKTAJE', full_width_row: true}
-  components:
-  - name: home_main_form_link_copy_1
-    properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
-      visible: true, text: Home, font_size: 15, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: 'fa:home'}
-    type: Link
-    layout_properties: {grid_position: 'KHIQYH,ISMTDW'}
-    event_bindings: {click: home_main_form_link_click}
-  - name: about_main_form_link_copy_1
-    properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
-      visible: true, text: About Us, font_size: 15, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: 'fa:adn'}
-    type: Link
-    layout_properties: {grid_position: 'BEBBVL,XIXDMT'}
-    event_bindings: {click: about_main_form_link_click}
-  - name: contact_main_form_link_copy_1
-    properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: white,
-      visible: true, text: 'Contact ', font_size: 15, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '{}', spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: 'fa:phone'}
-    type: Link
-    layout_properties: {grid_position: 'JTNMWA,LCMVRS'}
-    event_bindings: {click: contact_main_form_link_click}
-  - name: notification_link
-    properties: {text: Notification, foreground: white, icon: 'fa:bell'}
-    type: Link
-    event_bindings: {click: notification_link_click}
-  - name: wallet_dashboard_link
-    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
-      visible: true, text: Wallet, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
-      spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
-      italic: false, background: '', bold: false, underline: false, icon: 'data:image/png;base64,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'}
-    type: Link
-    layout_properties: {}
-    event_bindings: {click: wallet_dashboard_link_click}
+- type: form:lendor_registration_form.Navigation_bar_lender_dashbord
+  properties: {}
+  name: navigation_bar_lender_dashbord_1
+  layout_properties: {grid_position: 'MARHAX,AJPGYE'}
 - type: Label
   properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
     visible: true, text: Make Visibilty, font_size: 20, font: '', spacing_above: medium,

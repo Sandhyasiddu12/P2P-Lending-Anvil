@@ -10,6 +10,8 @@ components:
     properties: {height: 63.399932861328125, source: 'https://freesvg.org/img/abstract-user-flat-4.png'}
     type: Image
     layout_properties: {x: 3.050000000745058, y: 0, width: 66}
+    data_bindings:
+    - {property: source, code: 'self.item[''user_photo'']'}
   - name: lendor_name
     properties: {bold: true}
     type: Label

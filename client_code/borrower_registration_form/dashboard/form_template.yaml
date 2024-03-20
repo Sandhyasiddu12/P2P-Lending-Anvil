@@ -69,6 +69,15 @@ components:
     type: Link
     layout_properties: {}
     event_bindings: {click: contact_main_form_link_click}
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: white,
+      visible: true, text: Report A Problem, font_size: 15, wrap_on: mobile, font: '',
+      col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+      spacing_below: small, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:comment'}
+    name: Report_A_Problem
+    layout_properties: {}
+    event_bindings: {click: Report_A_Problem_click}
   - name: notification_link
     properties: {text: Notification, foreground: white, icon: 'fa:bell'}
     type: Link
