@@ -18,7 +18,7 @@ components:
     - type: form:admin.dashboard.home_button_admin
       properties: {}
       name: home_button_admin_1
-      layout_properties: {grid_position: 'GKMNPG,LKSGIM', row_background: ''}
+      layout_properties: {grid_position: 'GKMNPG,LKSGIM', row_background: '', full_width_row: false}
   - type: DataGrid
     properties:
       role: null

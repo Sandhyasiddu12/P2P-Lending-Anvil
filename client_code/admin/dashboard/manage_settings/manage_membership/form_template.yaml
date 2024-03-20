@@ -4,7 +4,7 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -13,7 +13,7 @@ components:
     name: content_panel_copy
     layout_properties:
       col_widths: {}
-      grid_position: HHWHRZ,LHWMJN
+      grid_position: AEYCVM,VJNMAR
     components:
     - type: form:admin.dashboard.home_button_admin
       properties: {}
@@ -29,72 +29,58 @@ components:
         col_widths: {}
         grid_position: MIRICW,RSFRFB
       event_bindings: {click: button_1_copy_3_click}
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Manage Name:', font_size: 20, font: '', spacing_above: large,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      name: label_1
-      layout_properties: {grid_position: 'VEXGUW,JBOQUR'}
-    - type: DropDown
-      properties:
-        role: null
-        align: full
-        tooltip: ''
-        placeholder: Select Option
-        border: ''
-        enabled: true
-        foreground: ''
-        items: [Silver, Gold, Platinum]
-        visible: true
-        font_size: null
-        font: ''
-        spacing_above: large
-        spacing_below: small
-        italic: false
-        background: white
-        bold: false
-        underline: false
-        include_placeholder: true
-      name: drop_down_1
-      layout_properties: {grid_position: 'VEXGUW,FYVPZO'}
-    - type: Label
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Tenure:', font_size: 20, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      name: label_2
-      layout_properties: {grid_position: 'BWZDET,KGECJP'}
-    - type: DropDown
-      properties:
-        role: null
-        align: full
-        tooltip: ''
-        placeholder: Select Option
-        border: ''
-        enabled: true
-        foreground: ''
-        items: [6 Months, 1 Year, 1 Year 6 Months, 2 Years]
-        visible: true
-        font_size: null
-        font: ''
-        spacing_above: small
-        spacing_below: small
-        italic: false
-        background: white
-        bold: false
-        underline: false
-        include_placeholder: true
-      name: drop_down_2
-      layout_properties: {grid_position: 'BWZDET,LLOUSE'}
-    - type: Button
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: Submit, font_size: null,
-        font: '', spacing_above: large, icon_align: left, spacing_below: small, italic: false,
-        background: '#05264d', bold: false, underline: false, icon: ''}
-      name: button_1
-      layout_properties: {grid_position: 'SGIJKZ,DNNJTS'}
-      event_bindings: {click: button_1_click}
+    - type: XYPanel
+      properties: {height: 100}
+      name: xy_panel_1
+      layout_properties: {grid_position: 'YVBQTC,MUUYYV', full_width_row: true}
+      components:
+      - name: outlined_card_1_copy_7
+        properties: {role: outlined-card, tooltip: '', border: '', foreground: '',
+          visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small,
+          col_widths: '{}', spacing_below: small, background: '#05264d'}
+        type: ColumnPanel
+        layout_properties: {x: 554.703125, y: 20, width: 147.297}
+        components:
+        - name: button_1_copy_9
+          properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+            foreground: 'theme:On Primary', visible: true, text: Platinum, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: ''}
+          type: Button
+          layout_properties: {grid_position: 'ZFSMGB,YGCQXB'}
+          event_bindings: {click: Qualifications_click}
+      - name: outlined_card_1_copy_9
+        properties: {role: outlined-card, tooltip: '', border: '', foreground: '',
+          visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small,
+          col_widths: '{}', spacing_below: small, background: '#05264d'}
+        type: ColumnPanel
+        layout_properties: {x: 348.703125, y: 20, width: 144.297}
+        components:
+        - name: button_1_copy_11
+          properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+            foreground: 'theme:On Primary', visible: true, text: 'Gold
+
+              ', font_size: null, font: '', spacing_above: small, icon_align: left,
+            spacing_below: small, italic: false, background: '', bold: false, underline: false,
+            icon: ''}
+          type: Button
+          layout_properties: {grid_position: 'ZFSMGB,YGCQXB'}
+          event_bindings: {click: Qualifications_click}
+      - name: outlined_card_1_copy_8
+        properties: {role: outlined-card, tooltip: '', border: '', foreground: '',
+          visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small,
+          col_widths: '{}', spacing_below: small, background: '#05264d'}
+        type: ColumnPanel
+        layout_properties: {x: 145.140625, y: 20, width: 134.296875}
+        components:
+        - name: button_1_copy_10
+          properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+            foreground: 'theme:On Primary', visible: true, text: Silver, font_size: null,
+            font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '', bold: false, underline: false, icon: ''}
+          type: Button
+          layout_properties: {grid_position: 'ZFSMGB,YGCQXB'}
+          event_bindings: {click: Qualifications_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
